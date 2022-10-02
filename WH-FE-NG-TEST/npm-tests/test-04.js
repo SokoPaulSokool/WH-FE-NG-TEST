@@ -14,6 +14,10 @@
     ignoreTrailingSlash : true,
     keepAliveTimeout : 65 * 1000
 });
+const purifyInput=(value)=>{
+return value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+.replace(/<[^>]*>/g, "");
+}
 
 /** @type {{ firstname?: string, lastname?: string}} */
 const userInput = {};
@@ -24,8 +28,8 @@ app.post('/save',(request,reply)=>{
     const body = request.body;
 
     // purify the inputs here
-    userInput.firstname = body.firstname;
-    userInput.lastname = body.lastname;
+    userInput.firstname = purifyInput(body.firstname)
+    userInput.lastname = purifyInput(body.lastname)
 
 
     reply.status(200);
@@ -63,6 +67,28 @@ app.listen(8080,"0.0.0.0").then((address)=>{
     });
 
     // JSON POST of `payload` to http://127.0.0.1:8080/save code here
+    const post_options = {
+      hostname: "0.0.0.0",
+      port: "8080",
+      path: "/save",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Content-Length": payload.length,
+      },
+    };
+    var post_req = http.request(post_options, function(res) {
+      let data = "";
+      res.on("data", (chunk) => {
+        data += chunk;
+      });
+
+      res.on("end", () => {
+        console.log("Body: ", data);
+      });
+    });
+    post_req.write(payload); 
+    post_req.end();
 
 });
 
