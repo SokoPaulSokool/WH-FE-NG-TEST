@@ -4,22 +4,35 @@
  * The span elements should be separated by a single space.
  */
 
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-
-function DataList(props) {
-  return (
-    <h2>code goes here</h2>
-  );
-}
-
-const data = [
-  { name: 'Daniel', age: 25 },
-  { name: 'John', age: 24 },
-  { name: 'Jen', age: 31 },
-];
-
-ReactDOM.render(
-  <DataList data={ data } />,
-  document.getElementById('test-01')
-);
+ import React, { useState } from 'react';
+ import ReactDOM from 'react-dom';
+ 
+ function DataList(props) {
+   return (
+     <h2>
+       <ul>
+       {props.data.map((item,i)=>{
+         return (
+           <li key={"oo"+i}>
+             <span>{item.name}</span>{" "}
+             <span>{item.age}</span>
+           </li>
+         );
+ 
+       })}
+       </ul>
+       
+     </h2>
+   );
+ }
+ 
+ const data = [
+   { name: 'Daniel', age: 25 },
+   { name: 'John', age: 24 },
+   { name: 'Jen', age: 31 },
+ ];
+ 
+ ReactDOM.render(
+   <DataList data={ data } />,
+   document.getElementById('test-01')
+ );
