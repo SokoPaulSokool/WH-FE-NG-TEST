@@ -5,33 +5,73 @@
  * * Both [monthly_payment] and [late_payment] should print in the template in currency format : $1,234
  */
 
-import { Component, Input,NgModule  } from '@angular/core';
-import { RouterModule } from "@angular/router";
-
-@Component({
-    selector : 'ng-app',
-    template : `<div>
-                    <h2>Loan Details</h2>
-                    <b>Monthly Payment:</b> {{monthly_payment}} <br/>
-                    <b>Late Payment Fee : {{late_payment}}</b> <br/>
-                </div>`
-})
-export class Test01Component {
-
-    loan_amount:number = 1000;
-    monthly_payment:number = 200;
-    late_payment = 10;
-}
-
-@NgModule({
-    imports : [
-        RouterModule.forChild([
-            {
-                path : "",
-                component : Test01Component
-            }
-        ])
-    ],
-    declarations : [Test01Component]
-})
-export class Test01Module {}
+ import { CommonModule } from '@angular/common';
+ import { Component, DEFAULT_CURRENCY_CODE, NgModule, OnInit } from '@angular/core';
+ import { RouterModule } from "@angular/router";
+ import { BehaviorSubject } from 'rxjs';
+ 
+ @Component({
+   selector: "ng-app",
+   template: `<div>
+     <h2>Loan Details</h2>
+     <b>Monthly Payment:</b>
+     {{
+       monthly_payment !== "N/A" ? (monthly_payment | currency) : monthly_payment
+     }}
+     <br />
+     <b
+       >Late Payment Fee :
+       {{ late_payment !== "N/A" ? (late_payment | currency) : late_payment }}</b
+     >
+     <br />
+   </div>`,
+ })
+ export class Test01Component implements OnInit {
+   loan_amount: any = 1000;
+   monthly_payment: any = 200;
+   late_payment: any = 10;
+ 
+   loan_amount$: BehaviorSubject<any>;
+   monthly_payment$: BehaviorSubject<any>;
+ 
+   constructor() {
+     this.loan_amount$ = new BehaviorSubject(this.loan_amount);
+     this.monthly_payment$ = new BehaviorSubject(this.monthly_payment);
+   }
+ 
+   ngOnInit(): void {
+     this.loan_amount$.subscribe((loan_amount) => {
+       console.log(this.loan_amount);
+       if (loan_amount === 0 || !loan_amount) {
+         this.monthly_payment$.next("N/A");
+       } else {
+         const newMonthlyPayment = loan_amount * 0.02;
+         this.monthly_payment$.next(newMonthlyPayment);
+       }
+     });
+ 
+     this.monthly_payment$.asObservable().subscribe((newMonthlyPayment) => {
+       this.monthly_payment = newMonthlyPayment;
+       if (newMonthlyPayment !== "N/A") {
+         this.late_payment = newMonthlyPayment * 0.05;
+       }else{
+         this.late_payment = "N/A";
+       }
+     });
+   }
+ }
+ 
+ @NgModule({
+     imports : [
+         CommonModule,
+         RouterModule.forChild([
+             {
+                 path : "",
+                 component : Test01Component
+             }
+         ])
+     ],
+     declarations : [Test01Component],
+     providers:[ {provide: DEFAULT_CURRENCY_CODE, useValue: 'USD'}]
+ })
+ export class Test01Module {}
