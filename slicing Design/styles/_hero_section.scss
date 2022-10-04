@@ -1,0 +1,59 @@
+@import "./helpers/colors";
+@import "./helpers/mixins";
+
+.hero_section {
+    background-color: $primary_color;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .title_section {
+      margin-bottom: 60px;
+      position: absolute;
+      left: 20px;
+      top: 50px;
+      @include md {
+        position: relative;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .title {
+        display: block;
+        color: $white;
+        font-size: 6.5em;
+  
+        text-align: left;
+  
+        font-weight: bold;
+        @include lg {
+          font-size: 4.5em;
+        }
+        @include sm {
+          font-size: 3.5em;
+        }
+      }
+    }
+  
+    .back_cover {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: $primary_color;
+      .img1{
+        @include md {
+           display: none;
+          }
+      }
+      .img2{
+        display: none;
+        @include md {
+           display: block;
+          }
+      }
+    }
+  }
+  
+
+  
+  

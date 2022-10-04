@@ -1,0 +1,135 @@
+@import "./helpers/colors";
+@import "./helpers/mixins";
+
+.credits_section {
+  min-height: 544px;
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-top: 40px;
+  width: 100%;
+  background-color: #f1f5f8;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  @include lg {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  .title {
+    align-self: flex-start;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: $primary_dark_color;
+    @include lg {
+      padding: 0 10px;
+    }
+  }
+  .card_item {
+    align-self: center;
+    background-color: $white;
+    min-height: 370px;
+    width: 100%;
+    padding: 50px 8%;
+    @include lg {
+      padding: 20px 0%;
+    }
+
+    .top_section {
+      @include lg {
+        padding: 0px 4%;
+      }
+      .card_title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        p {
+          font-size: 1.2em;
+        }
+        .rating {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          @include sm {
+            display: none;
+          }
+          .fa-star{
+            color: $secondary_color;
+
+          }
+          p {
+            font-size: 0.8em;
+            color: "#000000";
+            margin-left: 5px;
+          }
+        }
+      }
+
+      .visa_section {
+        display: flex;
+        justify-content: space-between;
+        .visa {
+          max-width: 151px;
+          max-height: 96px;
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+        .visa_details {
+          text-align: center;
+          padding: 0 20px;
+          .approval_odds {
+            @include center_flex();
+            border-radius: 20px;
+            height: 29px;
+            background-color: $secondary_color;
+            p {
+              margin: 0;
+              color: $white;
+              font-size: 0.8em;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+    .credit_details {
+      padding: 0;
+      @include lg {
+        margin-top: 20px;
+      }
+    }
+    .apply_btn {
+      background-color: $accent_color;
+      border: none;
+      color: $white;
+      height: 40px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.9em;
+      border-radius: 6px;
+      font-weight: bold;
+      width: 100%;
+    }
+  }
+
+  .bottom_section {
+    margin-top: 20px;
+    .line {
+      margin-bottom: 7px;
+      height: 1px;
+      background-color: #000000;
+    }
+    a {
+      font-size: 0.8em;
+      @include lg {
+        padding: 0 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import "./helpers/font_face";
+// @import "./helpers/colors";
+
+body {
+  margin: 0;
+  font-family: "ProximaNova";
+  overflow-y: scroll;
+}
+
+p {
+  color: #000000;
+  margin: 0;
+}
+
+@import "./nav_section";
+@import "./hero_section";
+@import "./_credit_opportunities_section";

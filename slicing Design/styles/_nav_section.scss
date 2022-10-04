@@ -1,0 +1,25 @@
+@import "./helpers/colors";
+
+.nav_bar {
+  background-color: $primary_color;
+  .nav_top_section {
+    height: 55px;
+  }
+  .nav_list {
+    background-color: $white;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .nav_item {
+      height: 100%;
+      border: 0.5px solid #edeff0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.7em;
+    }
+  }
+}

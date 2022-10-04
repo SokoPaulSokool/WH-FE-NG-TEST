@@ -1,0 +1,249 @@
+@font-face {
+  font-family: "ProximaNova";
+  src: local("ProximaNova"), url(../fonts/ProximaNova/ProximaNova-Reg.otf) format("opentype");
+}
+@font-face {
+  font-family: "ProximaNova";
+  src: local("ProximaNova"), url(../fonts/ProximaNova/ProximaNova-Thin.otf) format("opentype");
+  font-weight: lighter;
+}
+@font-face {
+  font-family: "ProximaNova";
+  src: local("ProximaNova"), url(../fonts/ProximaNova/ProximaNova-Bold.otf) format("opentype");
+  font-weight: bold;
+}
+body {
+  margin: 0;
+  font-family: "ProximaNova";
+  overflow-y: scroll;
+}
+
+p {
+  color: #000000;
+  margin: 0;
+}
+
+.nav_bar {
+  background-color: #23123a;
+}
+.nav_bar .nav_top_section {
+  height: 55px;
+}
+.nav_bar .nav_list {
+  background-color: #ffffff;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.nav_bar .nav_list .nav_item {
+  height: 100%;
+  border: 0.5px solid #edeff0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.7em;
+}
+
+.hero_section {
+  background-color: #23123a;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.hero_section .title_section {
+  margin-bottom: 60px;
+  position: absolute;
+  left: 20px;
+  top: 50px;
+}
+@media (max-width: 768px) {
+  .hero_section .title_section {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.hero_section .title_section .title {
+  display: block;
+  color: #ffffff;
+  font-size: 6.5em;
+  text-align: left;
+  font-weight: bold;
+}
+@media (max-width: 992px) {
+  .hero_section .title_section .title {
+    font-size: 4.5em;
+  }
+}
+@media (max-width: 576px) {
+  .hero_section .title_section .title {
+    font-size: 3.5em;
+  }
+}
+.hero_section .back_cover {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #23123a;
+}
+@media (max-width: 768px) {
+  .hero_section .back_cover .img1 {
+    display: none;
+  }
+}
+.hero_section .back_cover .img2 {
+  display: none;
+}
+@media (max-width: 768px) {
+  .hero_section .back_cover .img2 {
+    display: block;
+  }
+}
+
+.credits_section {
+  min-height: 544px;
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-top: 40px;
+  width: 100%;
+  background-color: #f1f5f8;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+@media (max-width: 992px) {
+  .credits_section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.credits_section a {
+  text-decoration: none;
+}
+.credits_section .title {
+  align-self: flex-start;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #373737;
+}
+@media (max-width: 992px) {
+  .credits_section .title {
+    padding: 0 10px;
+  }
+}
+.credits_section .card_item {
+  align-self: center;
+  background-color: #ffffff;
+  min-height: 370px;
+  width: 100%;
+  padding: 50px 8%;
+}
+@media (max-width: 992px) {
+  .credits_section .card_item {
+    padding: 20px 0%;
+  }
+}
+@media (max-width: 992px) {
+  .credits_section .card_item .top_section {
+    padding: 0px 4%;
+  }
+}
+.credits_section .card_item .top_section .card_title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.credits_section .card_item .top_section .card_title p {
+  font-size: 1.2em;
+}
+.credits_section .card_item .top_section .card_title .rating {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+@media (max-width: 576px) {
+  .credits_section .card_item .top_section .card_title .rating {
+    display: none;
+  }
+}
+.credits_section .card_item .top_section .card_title .rating .fa-star {
+  color: #59d8d1;
+}
+.credits_section .card_item .top_section .card_title .rating p {
+  font-size: 0.8em;
+  color: "#000000";
+  margin-left: 5px;
+}
+.credits_section .card_item .top_section .visa_section {
+  display: flex;
+  justify-content: space-between;
+}
+.credits_section .card_item .top_section .visa_section .visa {
+  max-width: 151px;
+  max-height: 96px;
+  width: 100%;
+}
+.credits_section .card_item .top_section .visa_section .visa img {
+  width: 100%;
+}
+.credits_section .card_item .top_section .visa_section .visa_details {
+  text-align: center;
+  padding: 0 20px;
+}
+.credits_section .card_item .top_section .visa_section .visa_details .approval_odds {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 29px;
+  background-color: #59d8d1;
+}
+.credits_section .card_item .top_section .visa_section .visa_details .approval_odds p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.credits_section .card_item .credit_details {
+  padding: 0;
+}
+@media (max-width: 992px) {
+  .credits_section .card_item .credit_details {
+    margin-top: 20px;
+  }
+}
+.credits_section .card_item .apply_btn {
+  background-color: #fa6e3d;
+  border: none;
+  color: #ffffff;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9em;
+  border-radius: 6px;
+  font-weight: bold;
+  width: 100%;
+}
+.credits_section .bottom_section {
+  margin-top: 20px;
+}
+.credits_section .bottom_section .line {
+  margin-bottom: 7px;
+  height: 1px;
+  background-color: #000000;
+}
+.credits_section .bottom_section a {
+  font-size: 0.8em;
+}
+@media (max-width: 992px) {
+  .credits_section .bottom_section a {
+    padding: 0 10px;
+  }
+}/*# sourceMappingURL=styles.css.map */
